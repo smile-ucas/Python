@@ -53,8 +53,8 @@ a=np.array([9,8,7,6,5])
 a[1:4:2]#前闭后开，第三个参数是步长
 #二维数组索引
 a=np.arange(24).reshape((2,3,4))
-a(1,2,3)#三个参数各指从外到内的维度 结果：23
-a(-1,-2,-3)#负数倒着数 倒数第一个倒数第二个 倒数第三个  结果：17 
+#a(1,2,3)#三个参数各指从外到内的维度 结果：23
+#a(-1,-2,-3)#负数倒着数 倒数第一个倒数第二个 倒数第三个  结果：17 
  #多维数组的切片
 a[:,1:2,:]#第二个参数前闭后开
 a[:,:,::2]#跳跃步长
@@ -64,28 +64,59 @@ a[:,:,::2]#跳跃步长
 a.mean()#数组a中所有元素加起来后的平均值
 
       
+      #                 csv只能有效存储一维和二维数组
+#生成一个csv文件
+a=np.arange(100).reshape((5,20))
+np.savetxt('a.csv',a,fmt='%d',delimiter=',')      
+#读入一个csv
+b=np.loadtxt('a.csv',delimiter=',')
+#print(b)
+b=np.loadtxt('a.csv',dtype=np.int,delimiter=',')
+#print(b)
+      
+      
+     #          任意维度的数据的存储
+a=np.arange(100).reshape(5,10,2)
+#print(a)     
+a.tofile("b.bat",sep=",",format='%d')          
+a.tofile("b_binary.bat",format='%d')     #sep不写，为空串，生成的文件是二进制文件 
+      
+a=np.fromfile("b.bat",dtype=np.int,sep=",").reshape(2,10,5)
+#print(a)      
+      
+      
+      # Numpy的方式
+a=np.arange(100).reshape(5,10,2)
+np.save('a.npy',a)
+b=np.load('a.npy')
+#print(b)
+      
 
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+     #          np.random的随机数函数
+a=np.random.rand(3,4,5)
+#print(a)
+sn=np.random.randn(3,4,5)
+#print(a)
+a=np.random.randint(100,200,(3,4))
+#print(a)
 
 
 
 
+np.random.seed(1)  #使两个同样方式生成的数组是一样的
+a=np.random.randint(100,200,(3,4))
+print(a)
+np.random.seed(1)
+a=np.random.randint(100,200,(3,4))
+print(a)
 
 
 
 
+            #Numpy的统计函数
 
+
+            #Numpy的梯度函数  只有一个np.gradient(f)
               
               
