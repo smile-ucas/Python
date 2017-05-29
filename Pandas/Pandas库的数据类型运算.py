@@ -27,7 +27,7 @@ b=pd.DataFrame(np.arange(20).reshape(4,5))
 c=pd.Series(np.arange(4))
 print(b)
 print(c)
-print(c-10)#官博运算：低维的都作用到高维的每一个数上
+print(c-10)#不同维度间采用广播运算：低维的都作用到高维的每一个数上
 print(b-c)
 
 
