@@ -1,3 +1,13 @@
+﻿[下载环境](http://www.python.org/downloads)
+
+使用：
+
+1.可以在IDLE中使用
+
+2.在IDLE中点击Ctrl+N打开一个新窗口，输入语句并保存，F5即可运行
+
+3.在Eclipse、PyCharm等集成开发环境中
+
 # Numpy库
 
 # matplotlib库
